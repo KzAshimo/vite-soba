@@ -63,7 +63,7 @@ const App = () => {
   };
 
   return (
-    <div className="container body">
+    <div className="container text-center">
       {/* ヘッダー */}
       <header className="bg-blue-600 text-white py-4 shadow-md text-center">
         <h1 className="text-3xl">Organizer System</h1>
