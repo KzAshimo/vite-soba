@@ -52,7 +52,7 @@ const App = () => {
 
   const [prevTotal,setPrevTotal] = useState<number>(()=>{
     const savedPrevTotal = localStorage.getItem("prevTotal");
-    return serPrevTotal ? Number(savedPrevTotal) : 0;
+    return savedPrevTotal ? Number(savedPrevTotal) : 0;
   });
 
 
