@@ -50,17 +50,31 @@ const App = () => {
     return savedTotal ? Number(savedTotal) : 0;
   });
 
+  const [prevTotal,setPrevTotal] = useState<number>(()=>{
+    const savedPrevTotal = localStorage.getItem("prevTotal");
+    return serPrevTotal ? Number(savedPrevTotal) : 0;
+  });
+
 
   const addPrice = (price: number) => {
+    setPrevTotal(total);
     const newTotal = total + price;
     setTotal(newTotal);
+    localStorage.setItem("prevTotal",total.toString());
     localStorage.setItem("total",newTotal.toString());
   };
 
   const resetTotal = () => {
+    setPrevTotal(total);
     setTotal(0);
-    localStorage.removeItem("total");
+    localStorage.setItem("prevTotal",total.toString());
+    localStorage.setItem("total","0");
   };
+
+  const backTotal = () =>{
+    setTotal(prevTotal);
+    localStorage.setItem("total",prevTotal.toString());
+  }
 
   return (
     <div className="container text-center">
@@ -79,6 +93,13 @@ const App = () => {
             className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
           >
             削除
+          </button>
+
+          <button
+            onClick={backTotal}
+            className="mt-4 bg-red-800 text-white px-4 py-2 rounded"
+          >
+            戻る
           </button>
         </div>
       </section>
