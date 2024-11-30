@@ -90,14 +90,14 @@ const App = () => {
           <p className="text-lg font-bold text-blue-600">￥{total}</p>
           <button
             onClick={resetTotal}
-            className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
+            className="mt-4 bg-red-500 text-white px-4 py-2 rounded mx-2"
           >
             削除
           </button>
 
           <button
             onClick={backTotal}
-            className="mt-4 bg-red-800 text-white px-4 py-2 rounded"
+            className="mt-4 bg-lime-500 text-white px-4 py-2 rounded mx-2"
           >
             戻る
           </button>
